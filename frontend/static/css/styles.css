@@ -1,0 +1,175 @@
+/* Generic Styling */
+
+:root {
+  --primary-blue: #33576E;
+  --secondary-blue: #C7DBE2;
+  --primary-green: #3e7c60;
+  --secondary-green: #98d673;
+  --tertiary-green: #85BB65;
+  --primary-beige: #fffbf5;
+  --secondary-beige: #fcebd9;
+  --green-font-color: #40775f;
+  --primary-font: 'Nunito', sans-serif;
+  --secondary-font: 'Sniglet', sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: var(--green-font-color) !important;
+  font-family: var(--secondary-font);
+  letter-spacing: 1px;
+}
+
+h3 {
+  text-align: center;
+  color: var(--green-font-color) !important;
+  font-family: var(--secondary-font);
+}
+
+h4 {
+  text-align: center;
+  color:  var(--green-font-color) !important;
+  font-family: var(--secondary-font);
+}
+
+span {
+  color: var(--primary-blue);
+}
+
+button {
+  padding: 10px;
+  background-color: var(--secondary-green);
+  width: 200px;
+  border-radius: 10px !important; 
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--primary-font) !important;
+  border: 2px solid var(--tertiary-green);
+}
+
+button:hover {
+  background-color: var(--tertiary-green);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="password"],
+select {
+  padding: 10px;
+  margin: 10px 0px;
+  border: 1px solid var(--secondary-blue);
+  border-radius: 5px;
+  font-family: var(--primary-font) !important;
+  width: 100%;
+  color: var(--primary-blue);
+}
+
+input::placeholder {
+  color: var(--primary-blue);
+}
+
+.delete-button {
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.delete-button:hover {
+  background-color: transparent;
+}
+
+/* Landing Page Styling */
+
+.form-container {
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding-top: 80px;
+  background-color: 'var(--primary-beige)';
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid var(--secondary-blue);
+  border-right: 2px solid var(--secondary-blue);
+  border-left: 2px solid var(--secondary-blue);
+  border-bottom: none;    
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.options {
+  flex: 1; 
+  color: black;
+  padding: 30px 0px;
+  border: none;
+  border-radius: 0px !important;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+.login-form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 400px;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding: 50px;
+  border-top: none;
+  border-right: 2px solid var(--secondary-blue);
+  border-left: 2px solid var(--secondary-blue);
+  border-bottom: 2px solid var(--secondary-blue);
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+form button {
+  align-self: center;
+  margin-top: 20px;
+}
+
+/* Add Expenses Page Styling */
+
+.add-expenses-form {
+  border: 2px solid var(--secondary-blue);
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Navbar Styling */
+
+.custom-navbar {
+  background-color: var(--primary-green);
+  color: var(--primary-beige);
+}
+  
+.custom-navbar .navbar-brand, 
+.custom-navbar .nav-link {
+  color: var(--off-white);
+  font-family: var(--secondary-font) !important;
+  letter-spacing: 1px;
+  padding: 15px;
+  transition: transform 0.3s ease;
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: var(--off-white) !important;
+}
+
+.custom-navbar .nav-link:hover {
+  transform: scale(1.05);
+  color: var(--off-white) !important;
+}
+  
+.navbar-links {
+  margin-left: auto;
+  margin-right: 20px;
+  gap: 12px;
+}
