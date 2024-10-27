@@ -15,7 +15,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-  'https://budget-tracker-app-7n4u.onrender.com',
+  'budget-tracker-app-7n4u.onrender.com',
   'localhost',
   '127.0.0.1',
 ]
