@@ -18,7 +18,7 @@ const ViewAllExpenses = ({ token, onLogout }) => {
     const fetchCategories = async () => {
       if (token) {
         try {
-          const response = await axios.get('http://127.0.0.1:8000/api/categories/', {
+          const response = await axios.get('https://budget-tracker-app-7n4u.onrender.com/api/categories/', {
             headers: {
               Authorization: `Token ${token}`,
             },
@@ -33,7 +33,7 @@ const ViewAllExpenses = ({ token, onLogout }) => {
     const fetchExpenses = async () => {
       if (token) {
         try {
-          const response = await axios.get('http://127.0.0.1:8000/api/expenses/', {
+          const response = await axios.get('https://budget-tracker-app-7n4u.onrender.com/api/expenses/', {
             headers: {
               Authorization: `Token ${token}`,
             },
@@ -53,7 +53,7 @@ const ViewAllExpenses = ({ token, onLogout }) => {
     const confirmDelete = window.confirm('Are you sure you want to delete this expense?');
     if (confirmDelete) {
       try {
-        await axios.delete(`http://127.0.0.1:8000/api/expenses/${expenseId}/`, {
+        await axios.delete(`https://budget-tracker-app-7n4u.onrender.com/api/expenses/${expenseId}/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -70,7 +70,6 @@ const ViewAllExpenses = ({ token, onLogout }) => {
     return (
       expenseDate.getUTCMonth() + 1 === month &&
       expenseDate.getUTCFullYear() === year 
-
     );
   });
 

@@ -32,7 +32,7 @@ const AddExpense = ({ token, onLogout }) => {
     const fetchCategories = async () => {
       if (token) {
         try {
-          const response = await axios.get('http://127.0.0.1:8000/api/categories/', {
+          const response = await axios.get('https://budget-tracker-app-7n4u.onrender.com/api/categories/', {
             headers: {
               Authorization: `Token ${token}`,
             },
@@ -47,7 +47,7 @@ const AddExpense = ({ token, onLogout }) => {
     const fetchExpenses = async () => {
       if (token) {
         try {
-          const response = await axios.get('http://127.0.0.1:8000/api/expenses/', {
+          const response = await axios.get('https://budget-tracker-app-7n4u.onrender.com/api/expenses/', {
             headers: {
               Authorization: `Token ${token}`,
             },

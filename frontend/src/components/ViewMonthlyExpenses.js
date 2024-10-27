@@ -10,13 +10,15 @@ import Navbar from './Navbar';
 const ViewMonthlyExpenses = ({ token, onLogout }) => {
   const [categories, setCategories] = useState([]);
   const [expenses, setExpenses] = useState([]);
+  const currentMonth = new Date().getMonth();
+  const currentYear = new Date().getFullYear();
   const month = new Date().toLocaleString('default', { month: 'long' });
 
   useEffect(() => {
     const fetchCategories = async () => {
       if (token) {
         try {
-          const response = await axios.get('http://127.0.0.1:8000/api/categories/', {
+          const response = await axios.get('https://budget-tracker-app-7n4u.onrender.com/api/categories/', {
             headers: {
               Authorization: `Token ${token}`,
             },
@@ -31,7 +33,7 @@ const ViewMonthlyExpenses = ({ token, onLogout }) => {
     const fetchExpenses = async () => {
       if (token) {
         try {
-          const response = await axios.get('http://127.0.0.1:8000/api/expenses/', {
+          const response = await axios.get('https://budget-tracker-app-7n4u.onrender.com/api/expenses/', {
             headers: {
               Authorization: `Token ${token}`,
             },
@@ -50,7 +52,7 @@ const ViewMonthlyExpenses = ({ token, onLogout }) => {
     const confirmDelete = window.confirm('Are you sure you want to delete this expense?');
     if (confirmDelete) {
       try {
-        await axios.delete(`http://127.0.0.1:8000/api/expenses/${expenseId}/`, {
+        await axios.delete(`https://budget-tracker-app-7n4u.onrender.com/api/expenses/${expenseId}/`, {
           headers: {
             Authorization: `Token ${token}`,
           },
@@ -62,8 +64,16 @@ const ViewMonthlyExpenses = ({ token, onLogout }) => {
     }
   };
 
+  const filteredExpenses = expenses.filter((expense) => {
+    const expenseDate = new Date(expense.date);
+    return (
+      expenseDate.getUTCMonth() === currentMonth && 
+      expenseDate.getUTCFullYear() === currentYear 
+    );
+  });;
+
   const groupedExpenses = categories.map((category) => {
-    const categoryExpenses = expenses.filter(
+    const categoryExpenses = filteredExpenses.filter(
       (expenses) => expenses.category === category.id
     );
     const totalCategoryAmount = categoryExpenses.reduce(
@@ -84,9 +94,6 @@ const ViewMonthlyExpenses = ({ token, onLogout }) => {
   });
 
   const getCurrentMonthTotal = () => {
-    const currentMonth = new Date().getUTCMonth();
-    const currentYear = new Date().getUTCFullYear();
-
     const monthlyExpenses = expenses.filter((expense) => {
       const [year, month] = expense.date.split('-');
       const parsedYear = parseInt(year, 10);

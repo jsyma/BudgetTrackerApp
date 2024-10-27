@@ -25,7 +25,7 @@ const Login = ({ onLogin }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/login/', {
+      const response = await axios.post('https://budget-tracker-app-7n4u.onrender.com/api/login/', {
         username,
         password,
       },
