@@ -80,7 +80,7 @@ const AddExpense = ({ token, onLogout }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/expenses/', {
+      const response = await axios.post('https://budget-tracker-app-7n4u.onrender.com/api/expenses/', {
         name,
         category: categoryId,
         date,
